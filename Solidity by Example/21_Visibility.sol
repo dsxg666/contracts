@@ -1,10 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// 函数可见性关键字：
+//     public   (1) 合约内可以调用 (2) 子合约可以调用 (3) 外部帐户可以访问
+//     internal (1) 合约内可以调用 (2) 子合约可以调用 (3) 外部帐户不可访问
+//     private  (1) 合约内可以调用 (2) 子合约不可调用 (3) 外部账户不可访问
+//     external (1) 合约内不可调用 (2) 子合约不可调用 (3) 外部帐户可以访问
+// 状态变量可见性关键字：和函数类似，但不能设置为 external，默认是 internal。
+
 contract Base {
-    // Private function can only be called
-    // - inside this contract
-    // Contracts that inherit this contract cannot call this function.
     function privateFunc() private pure returns (string memory) {
         return "private function called";
     }
@@ -13,9 +17,6 @@ contract Base {
         return privateFunc();
     }
 
-    // Internal function can be called
-    // - inside this contract
-    // - inside contracts that inherit this contract
     function internalFunc() internal pure returns (string memory) {
         return "internal function called";
     }
@@ -24,22 +25,15 @@ contract Base {
         return internalFunc();
     }
 
-    // Public functions can be called
-    // - inside this contract
-    // - inside contracts that inherit this contract
-    // - by other contracts and accounts
     function publicFunc() public pure returns (string memory) {
         return "public function called";
     }
 
-    // External functions can only be called
-    // - by other contracts and accounts
     function externalFunc() external pure returns (string memory) {
         return "external function called";
     }
 
-    // This function will not compile since we're trying to call
-    // an external function here.
+    // This function will not compile since we're trying to callan external function here.
     // function testExternalFunc() public pure returns (string memory) {
     //     return externalFunc();
     // }
@@ -64,15 +58,3 @@ contract Child is Base {
         return internalFunc();
     }
 }
-
-/*
-Functions and state variables have to declare whether they are accessible by other contracts.
-
-Functions can be declared as
-    public - any contract and account can call
-    private - only inside the contract that defines the function
-    internal- only inside contract that inherits an internal function
-    external - only other contracts and accounts can call
-
-State variables can be declared as public, private, or internal but not external.
-*/

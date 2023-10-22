@@ -1,6 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// 变量可以声明为 storage, memory or calldata 以显式指定数据的位置：
+// storage 指定该变量是状态变量。
+// memory 指定该变量是局部变量。
+// calldata 包含函数参数的特殊数据位置
+
 contract DataLocations {
     uint[] public arr;
     mapping(uint => address) map;
@@ -36,10 +41,3 @@ contract DataLocations {
         // do something with calldata array
     }
 }
-
-/*
-Variables are declared as either storage, memory or calldata to explicitly specify the location of the data.
-    storage - variable is a state variable (store on blockchain)
-    memory - variable is in memory and it exists while a function is being called
-    calldata - special data location that contains function arguments
-*/

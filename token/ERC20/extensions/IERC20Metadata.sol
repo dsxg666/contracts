@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "../IERC20.sol";
+import {IERC20} from "../IERC20.sol";
 
 interface IERC20Metadata is IERC20 {
     // Returns the name of the token - e.g. "Ether".

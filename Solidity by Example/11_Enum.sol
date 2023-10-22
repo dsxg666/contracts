@@ -11,8 +11,7 @@ contract Enum {
         Canceled
     }
 
-    // Default value is the first element listed in
-    // definition of the type, in this case "Pending"
+    // Default value is the first element listed indefinition of the type, in this case "Pending"
     Status public status;
 
     // Returns uint

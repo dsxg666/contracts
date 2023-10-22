@@ -1,6 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// 你可以通过声明一个 interface 与其他合约进行交互。
+// 继承了一个接口的合约必须实现接口中定义的所有函数。
+// interface：
+// 1. 不能实现任何函数
+// 2. 可以从其他接口继承
+// 3. 所有声明的函数都必须是外部的
+// 4. 不能声明构造函数
+// 5. 不能声明状态变量
+
 contract Counter {
     uint public count;
 
@@ -51,14 +60,3 @@ contract UniswapExample {
         return (reserve0, reserve1);
     }
 }
-
-/*
-You can interact with other contracts by declaring an Interface.
-
-Interface:
-    1. cannot have any functions implemented
-    2. can inherit from other interfaces
-    3. all declared functions must be external
-    4. cannot declare a constructor
-    5. cannot declare state variables
-*/

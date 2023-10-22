@@ -9,10 +9,10 @@ interface IERC20 {
     function totalSupply() external view returns (uint256);
 
     function balanceOf(address account) external view returns (uint256);
-    // transfer tokens
+
     function transfer(address to, uint256 amount) external returns (bool);
-    // The following three functions used implement:
-    // allow others to transfer tokens on behalf of the token holder
+
+    // 下面三个函数用于实现：允许其他人代表持币者转移代币
     function transferFrom(address from, address to, uint256 amount) external returns (bool);
 
     function allowance(address owner, address spender) external view returns (uint256);

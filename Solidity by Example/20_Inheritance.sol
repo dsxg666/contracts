@@ -1,13 +1,15 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// Solidity 支持多继承，继承关键字为 is。
+// 一个要被子函数覆盖的父函数必须使用关键字 virtual；一个要重写父函数的子函数必须使用关键字 override。
+
 /* Graph of inheritance
     A
    / \
   B   C
  / \ /
-F  D,E
-
+F  D E
 */
 
 contract A {
@@ -32,10 +34,8 @@ contract C is A {
 }
 
 // Contracts can inherit from multiple parent contracts.
-// When a function is called that is defined multiple times in
-// different contracts, parent contracts are searched from
-// right to left, and in depth-first manner.
-
+// When a function is called that is defined multiple times in different contracts, parent contracts are searched from right to left, and in depth-first manner.
+// 当调用在不同合约中多次定义的函数时，父契约从右到左搜索，并以深度优先的方式搜索。
 contract D is B, C {
     // D.foo() returns "C"
     // since C is the right most parent contract with function foo()
@@ -59,13 +59,3 @@ contract F is A, B {
         return super.foo();
     }
 }
-
-/*
-Solidity supports multiple inheritance. Contracts can inherit other contract by using the is keyword.
-
-Function that is going to be overridden by a child contract must be declared as virtual.
-
-Function that is going to override a parent function must use the keyword override.
-
-Order of inheritance is important.
-*/

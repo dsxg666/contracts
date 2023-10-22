@@ -2,8 +2,7 @@
 pragma solidity ^0.8.0;
 
 contract FunctionModifier {
-    // We will use these variables to demonstrate how to use
-    // modifiers.
+    // We will use these variables to demonstrate how to use modifiers.
     address public owner;
     uint public x = 10;
     bool public locked;
@@ -53,12 +52,3 @@ contract FunctionModifier {
         }
     }
 }
-
-/*
-Modifiers are code that can be run before and / or after a function call.
-
-Modifiers can be used to:
-    1. Restrict access
-    1. Validate inputs
-    1. Guard against reentrancy hack
-*/

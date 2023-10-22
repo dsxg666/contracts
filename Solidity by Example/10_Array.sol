@@ -13,8 +13,7 @@ contract Array {
     }
 
     // Solidity can return the entire array.
-    // But this function should be avoided for
-    // arrays that can grow indefinitely in length.
+    // But this function should be avoided for arrays that can grow indefinitely in length.
     function getArr() public view returns (uint[] memory) {
         return arr;
     }
@@ -37,13 +36,12 @@ contract Array {
 
     function remove(uint index) public {
         // Delete does not change the array length.
-        // It resets the value at index to it's default value,
-        // in this case 0
+        // It resets the value at index to it's default value, in this case 0.
         delete arr[index];
     }
 
     function examples() external {
-        // create array in memory, only fixed size can be created
+        // create array in memory, only fixed size can be created.
         uint[] memory a = new uint[](5);
     }
 }

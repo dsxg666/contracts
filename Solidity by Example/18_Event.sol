@@ -14,9 +14,3 @@ contract Event {
         emit AnotherLog();
     }
 }
-
-/*
-Events allow logging to the Ethereum blockchain. Some use cases for events are:
-    1. Listening for events and updating user interface
-    1. A cheap form of storage
-*/

@@ -1,21 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-// Contracts must be marked as abstract when at least one of their functions is not implemented
+// 当合约中至少有一个函数没有被实现时，它必须被标记为 abstract。
+// 即使实现了所有的函数，也可以将合约标记为 abstract。
+// 任何继承抽象合约的合约都必须实现这个抽象合约中没有实现的函数，否则会在编译时报错。
 abstract contract Feline {
     function utterance() public virtual returns (bytes32);
 }
-
-// Contracts can marked as abstract even all function is implemented.
-abstract contract Context {
-    function msgSender() internal view virtual returns (address) {
-        return msg.sender;
-    }
-}
-
-/*
-Abstract contracts are similar to Interfaces but an interface is more limited in what it can declare.
-
-If a contract inherits from an abstract contract and does not implement
-all non-implemented functions by overriding, it needs to be marked as abstract as well.
-*/
