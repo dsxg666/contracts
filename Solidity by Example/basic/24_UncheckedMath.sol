@@ -1,6 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+// 在 Solidity 0.8 版本后，发生数字溢出和下溢会抛出错误。
+// 这可以通过使用 unchecked 来禁用，如果可以保证数字不会发生溢出和下溢，可以通过禁止节省 gas。
+
 contract UncheckedMath {
     function add(uint x, uint y) external pure returns (uint) {
         // 22291 gas
@@ -32,9 +35,3 @@ contract UncheckedMath {
     }
     }
 }
-
-/*
-Overflow and underflow of numbers in Solidity 0.8 throw an error. This can be disabled by using unchecked.
-
-Disabling overflow / underflow check saves gas.
-*/
