@@ -26,7 +26,6 @@ contract EtherStore {
 contract Attack {
     EtherStore public etherStore;
 
-
     constructor(address _etherStoreAddress) {
         etherStore = EtherStore(_etherStoreAddress);
     }
